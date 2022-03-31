@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first vue App</title>
+</head>
+<body>
+    
+    <div id="main">
+        <div>
+            <h1>Two-way-binding</h1>
+            <p>{{inputText}}</p>
+            <input type="text" v-model=inputText>
+        </div>
+        <hr>
+        <div>
+            <h1>Rendering lists</h1>
+            <p>Task list -> {{tasks}}</p>
+            <ul>
+                <li v-for="task in tasks">{{task}}</li>
+            </ul>
+        </div>
+        <hr>
+        <div>
+            <h1>Directives</h1>
+            <span>Directives are "properties" in HTML tags</span>
+            <h2>If vs show</h2>
+            <span v-show="show">Show is true; If show is false it only changes display to "none".</span><br/>
+            <span v-if="ifDirective">If is true; If the if directive is false it will not render the tag (It won't be in the DOM!).</span>
+        </div>
+        <hr>
+        <div>
+            <h1>Events</h1>
+            <h2>TODO List</h2>
+            <input v-on:keyup.enter="addTask" type="text" v-model="task">
+            <button v-on:click="addTask">Add task</button>
+            <ul>
+                <li v-for="task in todoList">{{task}}</li>
+            </ul>
+        </div>
+        <hr>
+        <div>
+            <h1>Computed properties</h1>
+            <input type="text" v-model="title" v-on:keyup.enter="addObject">
+            <button v-on:click="addObject">Add object</button>
+            <h3>TODO list</h3>
+            <ul>
+                <li v-for="value in objects">{{value.title  }}</li>
+            </ul>
+            <h3>Finished</h3>
+            <ul>
+                <li v-for="value in showCompleted">{{value.title}}</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
