@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first vue App</title>
+</head>
+<body>
+    
+    <div id="main">
+        <h1>TODO List</h1>
+        <hr>
+        <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+        <button v-on:click="addTodo">Add TODO</button>
+        <ul>
+            <li v-for="item in allTodos">
+                {{item.title}}&nbsp;&nbsp;&nbsp;
+                <button v-on:click="completeTodo(item.id)">Complete</button>
+            </li>
+        </ul>
+        <h3>Completed</h3>
+        <ul>
+            <li v-for="item in showCompleted">
+                {{item.title}}&nbsp;&nbsp;&nbsp;
+                <button v-on:click="uncompleteTodo(item.id)">Delete</button>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="lists.js"></script>
+</body>
+</html>
