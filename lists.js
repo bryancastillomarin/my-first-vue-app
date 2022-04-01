@@ -3,10 +3,6 @@ const vue = new Vue({
 	, data: {
 		id: 0
 		, allTodos: []
-		, createdTodos:[]
-		, inProgreesTodos: []
-		, errorTodos: []
-		, finishedTodos: []
 		, newTodo: null
 		, statuses: {
 			CREATED: 1
@@ -26,6 +22,18 @@ const vue = new Vue({
 				});
 			this.newTodo = null;
 		}
+		, moveToInProgress(id) {
+			const todo = this.getTodo(id)[0];
+			todo.status = this.statuses.IN_PROGRESS;
+		}
+		, moveToCompleted(id) {
+			const todo = this.getTodo(id)[0];
+			todo.status = this.statuses.FINISHED;
+		}
+		, moveToError(id) {
+			const todo = this.getTodo(id)[0];
+			todo.status = this.statuses.ERORR;
+		}
 		, getTodo(id) {
 			return this.allTodos.filter(item => item.id === id);
 		}
@@ -44,5 +52,4 @@ const vue = new Vue({
 			return this.allTodos.filter(item => item.status === this.statuses.FINISHED);
 		}
 	}
-
 });
