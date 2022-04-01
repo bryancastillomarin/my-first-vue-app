@@ -7,28 +7,39 @@
     <title>My first vue App</title>
 </head>
 <body>
-    
     <div id="main">
         <h1>TODO List</h1>
-        <hr>
         <input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
         <button v-on:click="addTodo">Add TODO</button>
+        <hr>
+        <h3>Created</h3>
         <ul>
-            <li v-for="item in allTodos">
-                {{item.title}}&nbsp;&nbsp;&nbsp;
-                <button v-on:click="completeTodo(item.id)">Complete</button>
+            <li v-for="item in showCreated">
+                {{item.title}}
             </li>
         </ul>
+        <hr>
+        <h3>In progress</h3>
+        <ul>
+            <li v-for="item in showInProgress">
+                {{item.title}}
+            </li>
+        </ul>
+        <hr>
         <h3>Completed</h3>
         <ul>
-            <li v-for="item in showCompleted">
-                {{item.title}}&nbsp;&nbsp;&nbsp;
-                <button v-on:click="uncompleteTodo(item.id)">Delete</button>
+            <li v-for="item in showFinished">
+                {{item.title}}
+            </li>
+        </ul>
+        <hr>
+        <h3>Error</h3>
+        <ul>
+            <li v-for="item in showError">
+                {{item.title}}
             </li>
         </ul>
     </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="lists.js"></script>
 </body>
