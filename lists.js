@@ -22,20 +22,14 @@ const vue = new Vue({
 				});
 			this.newTodo = null;
 		}
-		, moveToInProgress(id) {
-			const todo = this.getTodo(id)[0];
+		, moveToInProgress(todo) {
 			todo.status = this.statuses.IN_PROGRESS;
 		}
-		, moveToCompleted(id) {
-			const todo = this.getTodo(id)[0];
+		, moveToCompleted(todo) {
 			todo.status = this.statuses.FINISHED;
 		}
-		, moveToError(id) {
-			const todo = this.getTodo(id)[0];
+		, moveToError(todo) {
 			todo.status = this.statuses.ERORR;
-		}
-		, getTodo(id) {
-			return this.allTodos.filter(item => item.id === id);
 		}
 	}
 	, computed: {

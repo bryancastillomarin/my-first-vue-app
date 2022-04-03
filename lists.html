@@ -16,7 +16,7 @@
         <ul>
             <li v-for="item in showCreated">
                 {{item.title}} &nbsp;&nbsp;&nbsp;
-                <button v-on:click="moveToInProgress(item.id)">Move to In Progress</button>
+                <button v-on:click="moveToInProgress(item)">Move to In Progress</button>
             </li>
         </ul>
         <hr>
@@ -24,7 +24,7 @@
         <ul>
             <li v-for="item in showInProgress">
                 {{item.title}} &nbsp;&nbsp;&nbsp;
-                <button v-on:click="moveToCompleted(item.id)">Move to Completed</button>
+                <button v-on:click="moveToCompleted(item)">Move to Completed</button>
             </li>
         </ul>
         <hr>
@@ -32,9 +32,9 @@
         <ul>
             <li v-for="item in showFinished">
                 {{item.title}} &nbsp;&nbsp;&nbsp;
-                <button v-on:click="moveToError(item.id)">Move to Error</button>
+                <button v-on:click="moveToError(item)">Move to Error</button>
                 &nbsp;&nbsp;&nbsp;
-                <button v-on:click="moveToInProgress(item.id)">Move to In Progress</button>
+                <button v-on:click="moveToInProgress(item)">Move to In Progress</button>
             </li>
         </ul>
         <hr>
@@ -42,7 +42,7 @@
         <ul>
             <li v-for="item in showError">
                 {{item.title}} &nbsp;&nbsp;&nbsp;
-                <button v-on:click="moveToCompleted(item.id)">Move to Completed</button>
+                <button v-on:click="moveToCompleted(item)">Move to Completed</button>
             </li>
         </ul>
     </div>
